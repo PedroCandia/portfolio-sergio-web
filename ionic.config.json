@@ -1,0 +1,7 @@
+{
+  "name": "portfolio-sergio-web",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
