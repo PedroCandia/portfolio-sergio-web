@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { IonContent } from '@ionic/angular/standalone';
+import { IonContent, IonText } from '@ionic/angular/standalone';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
+import { GalleryComponent } from '../components/gallery/gallery.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonContent, FooterComponent, HeaderComponent],
+  imports: [IonText, IonContent, FooterComponent, HeaderComponent, GalleryComponent],
 })
 export class HomePage {
   isShrunk = false;

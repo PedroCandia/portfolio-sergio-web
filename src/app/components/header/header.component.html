@@ -1,30 +1,37 @@
-<!-- hacer que el primer header deberia ser sin cambios en el css -->
+<!-- Toolbar cuando el scroll esta hasta arriba -->
 
 <ion-header  class="headerImg">
   <ion-toolbar>
+    <div style="display: flex; justify-content: space-between;">
+      <ion-img 
+        class="logo"
+        style="width: 180px; height: 180px;"
+        src="../../../assets/img/header/logo_carpentry2.png"
+      ></ion-img>
 
-    <ion-img class="logo" src="../../../assets/img/header/logo_carpentry2.png"></ion-img>
-
-    <ion-buttons slot="end">
-      <ion-button routerLink="/home">Inicio</ion-button>
-      <ion-button routerLink="/gallery">Galería</ion-button>
-      <ion-button routerLink="/contact">Contacto</ion-button>
-    </ion-buttons>
-
+      <ion-buttons  ion-buttons slot="end">
+        <ion-button routerLink="/home">Inicio</ion-button>
+        <ion-button routerLink="/gallery">Galería</ion-button>
+        <ion-button routerLink="/contact">Contacto</ion-button>
+      </ion-buttons>
+    </div>
+    <div class="galleryTitle">
+      <ion-text>Galería</ion-text>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<!-- hacer que no se muestre si el isShrunk es true -->
+<!-- Toolbar se hace visible cuando el scroll baja -->
 @if (isShrunk) {
   <ion-header [class.shrink]="isShrunk" [class.visable]="isShrunk" class="staticHeader shrinkAnim">
-  <ion-toolbar>
-    <ion-img class="logo" style="width: 85px; height: 85px;" src="../../../assets/img/header/logo_carpentry2.png"></ion-img>
+    <ion-toolbar>
+      <ion-img class="logo" style="width: 100px; height: 100px;" src="../../../assets/img/header/logo_carpentry2.png"></ion-img>
 
-    <ion-buttons slot="end">
-      <ion-button routerLink="/home">Inicio</ion-button>
-      <ion-button routerLink="/gallery">Galería</ion-button>
-      <ion-button routerLink="/contact">Contacto</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+      <ion-buttons slot="end">
+        <ion-button routerLink="/home">Inicio</ion-button>
+        <ion-button routerLink="/gallery">Galería</ion-button>
+        <ion-button routerLink="/contact">Contacto</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 }
