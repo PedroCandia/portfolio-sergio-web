@@ -1,5 +1,5 @@
 .container {
-    padding-inline: 17rem;
+    padding-inline: 22rem;
 }
 
 ion-text {
@@ -26,4 +26,8 @@ ion-img {
 
 ion-img:hover {
   transform: scale(1.05);
+}
+
+ion-grid {
+  margin-bottom: 2rem;
 }

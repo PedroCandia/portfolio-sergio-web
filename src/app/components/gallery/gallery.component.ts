@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -9,6 +9,8 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule]
 })
 export class GalleryComponent  implements OnInit {
+  @Input() title!: string;
+  @Input() images: string[] = [];
 
   constructor() { }
 
