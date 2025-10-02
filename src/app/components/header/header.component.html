@@ -1,14 +1,37 @@
-<ion-header style="min-height: 60px;">
+<!-- Toolbar cuando el scroll esta hasta arriba -->
+
+<ion-header  class="headerImg">
   <ion-toolbar>
+    <div style="display: flex; justify-content: space-between;">
+      <ion-img 
+        class="logo"
+        style="width: 180px; height: 180px;"
+        src="../../../assets/img/header/logo_carpentry2.png"
+      ></ion-img>
 
-    <ion-img src="../../../assets/img/header/logo_carpentry.png"
-             style="height: 85px; width: 85px;"></ion-img>
-
-    <ion-buttons slot="end">
-      <ion-button routerLink="/home">Home</ion-button>
-      <ion-button routerLink="/gallery">Gallery</ion-button>
-      <ion-button routerLink="/contact">Contact</ion-button>
-    </ion-buttons>
-
+      <ion-buttons  ion-buttons slot="end">
+        <ion-button routerLink="/home">Inicio</ion-button>
+        <ion-button routerLink="/gallery">Galería</ion-button>
+        <ion-button routerLink="/contact">Contacto</ion-button>
+      </ion-buttons>
+    </div>
+    <div class="galleryTitle">
+      <ion-text>Galería</ion-text>
+    </div>
   </ion-toolbar>
 </ion-header>
+
+<!-- Toolbar se hace visible cuando el scroll baja -->
+@if (isShrunk) {
+  <ion-header [class.shrink]="isShrunk" [class.visable]="isShrunk" class="staticHeader shrinkAnim">
+    <ion-toolbar>
+      <ion-img class="logo" style="width: 100px; height: 100px;" src="../../../assets/img/header/logo_carpentry2.png"></ion-img>
+
+      <ion-buttons slot="end">
+        <ion-button routerLink="/home">Inicio</ion-button>
+        <ion-button routerLink="/gallery">Galería</ion-button>
+        <ion-button routerLink="/contact">Contacto</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+}

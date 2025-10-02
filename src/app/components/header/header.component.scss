@@ -1,3 +1,97 @@
+ion-buttons {
+  margin-right: 5rem;
+  display: flex;
+  gap: 1rem;
+}
+
 ion-button {
   text-transform: none !important; /* mantiene el texto como lo escribas */
+  color: white;
+  font-size: 17px;
+}
+
+ion-toolbar {
+  height: 450px;
+  display: flex;
+  transition: all 0.5s ease;
+  padding-inline: 17rem;
+  align-items: start;
+  --padding-top: 2rem;
+}
+
+ion-toolbar .galleryTitle {
+  padding-inline: 5rem;
+  font-size: 5rem;
+  font-weight: bold;
+  padding-top: 2rem;
+
+  ion-text {
+    color: white;
+  }
+}
+
+.headerImg ion-toolbar {
+  position: relative;
+  overflow: hidden;
+  --background: url("../../../assets/img/header/banner.jpg") no-repeat center/cover;
+}
+
+/* Overlay oscuro encima de la imagen */
+.headerImg ion-toolbar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.50); /* negro semi-transparente */
+  z-index: 0;
+}
+
+/* Mantener logo, botones y textos encima */
+.headerImg ion-toolbar > * {
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  height: 110px;
+  width: 110px;
+  margin-left: 5rem;
+}
+
+ion-header.shrink {
+  position: fixed;   /* lo fija arriba */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;     /* que quede encima del contenido */
+}
+
+ion-header.shrink ion-toolbar {
+  --padding-top: 0rem;
+  align-items: center;
+  height: 7rem;
+  --background: #5E5B53; /* color solo cuando shrink = true */
+    background: none; /* quitamos la imagen */
+}
+
+ion-header.shrink .logo {
+  height: 60px;
+  width: 60px;
+  margin-left: 2rem;
+}
+
+/* Animación para cuando aparece */
+.shrinkAnim {
+  animation: fadeDown 0.4s ease forwards;
+}
+
+/* keyframes: entra desde arriba con fade */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
