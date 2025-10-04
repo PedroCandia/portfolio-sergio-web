@@ -1,0 +1,50 @@
+ion-footer {
+  .footer-content {
+    p {
+        font-size: 2rem;
+          font-weight: bold;
+    }
+    text-align: left;
+    color: white; /* color del texto */
+  }
+}
+
+/* Si quieres un color personalizado en lugar del color="dark": */
+ion-toolbar {
+  --background: #f7f6f6; /* azul */
+  --color: rgb(0, 0, 0);        /* texto en blanco */
+  min-height: 50px;
+}
+ion-toolbar {
+  --background: #0e0d0d; /* Color de fondo (azul ejemplo) */
+  --color: rgb(0, 0, 0);        /* Texto en blanco */
+  min-height: 150px;
+}
+
+.footer-content {
+  text-align: left;
+  padding: 50px;
+
+  p {
+    margin: 20px 0;
+    font-size: 14px;
+  }
+
+  .footer-links {
+    display: flex; flex-direction: column;
+    gap: 5px;
+    text-align: left;
+    margin-top: 5px;
+
+    a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
