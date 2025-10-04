@@ -1,3 +1,9 @@
+.container_toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 ion-buttons {
   margin-right: 5rem;
   display: flex;
@@ -19,9 +25,9 @@ ion-toolbar {
   --padding-top: 2rem;
 }
 
-ion-toolbar .galleryTitle {
+.galleryTitle {
   padding-inline: 5rem;
-  font-size: 5rem;
+  font-size: clamp(3rem, 5vw, 5rem);
   font-weight: bold;
   padding-top: 2rem;
 
@@ -30,14 +36,14 @@ ion-toolbar .galleryTitle {
   }
 }
 
-.headerImg ion-toolbar {
+.headerBanner ion-toolbar {
   position: relative;
   overflow: hidden;
   --background: url("../../../assets/img/header/banner.jpg") no-repeat center/cover;
 }
 
 /* Overlay oscuro encima de la imagen */
-.headerImg ion-toolbar::after {
+.headerBanner ion-toolbar::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -46,14 +52,14 @@ ion-toolbar .galleryTitle {
 }
 
 /* Mantener logo, botones y textos encima */
-.headerImg ion-toolbar > * {
+.headerBanner ion-toolbar > * {
   position: relative;
   z-index: 1;
 }
 
 .logo {
-  height: 110px;
-  width: 110px;
+  height: 180px;
+  width: 180px;
   margin-left: 5rem;
 }
 
@@ -93,5 +99,144 @@ ion-header.shrink .logo {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.desktopShow {
+  display: flex;
+}
+
+.mobileShow {
+  display: none;
+}
+
+/* Extra pequeños (teléfonos en vertical, <576px) */
+@media (max-width: 575.98px) {
+  ion-toolbar {
+    padding-inline: 0rem;
+    --padding-top: 0rem;
+    height: 300px;
+  }
+
+  .container_toolbar {
+    padding-inline: 2rem;
+  }
+
+  .galleryTitle {
+    padding-inline: 2rem;
+  }
+
+  .logo {
+    height: 110px;
+    width: 110px;
+    margin-left: 0rem;
+  }
+
+  .staticIconMenu {
+    padding-right: 3rem;
+  }
+
+  .desktopShow {
+    display: none;
+  }
+
+  .mobileShow {
+    display: block;
+  }
+}
+
+/* Pequeños (teléfonos grandes, ≥576px y <768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  ion-toolbar {
+    padding-inline: 0rem;
+    --padding-top: 0rem;
+    height: 350px;
+  }
+
+  .container_toolbar {
+    padding-inline: 3rem;
+  }
+
+  .galleryTitle {
+    padding-inline: 3.5rem;
+  }
+
+  .logo {
+    height: 140px;
+    width: 140px;
+    margin-left: 0rem;
+  }
+
+  .staticIconMenu {
+    padding-right: 3rem;
+  }
+
+
+  .desktopShow {
+    display: none;
+  }
+
+  .mobileShow {
+    display: block;
+  }
+}
+
+/* Medianos (tablets, ≥768px y <992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .headerBanner {
+    ion-toolbar {
+      padding-inline: 1rem;
+    }
+  }
+
+  .staticHeader {
+    ion-toolbar {
+      padding-inline: 1rem;
+    }
+  }
+}
+
+/* Grandes (laptops, ≥992px y <1200px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .headerBanner {
+    ion-toolbar {
+      padding-inline: 4rem;
+    }
+  }
+
+  .staticHeader {
+    ion-toolbar {
+      padding-inline: 4rem;
+    }
+  }
+}
+
+/* Extra grandes (pantallas desktop, ≥1200px y <1400px) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .headerBanner {
+    ion-toolbar {
+      padding-inline: 8rem;
+    }
+  }
+
+  .staticHeader {
+    ion-toolbar {
+      padding-inline: 8rem;
+    }
+  }
+}
+
+/* Ultra grandes (≥1400px) */
+@media (min-width: 1400px) {
+  .headerBanner {
+    ion-toolbar {
+      padding-inline: 12rem;
+    }
+  }
+
+  .staticHeader {
+    ion-toolbar {
+      padding-inline: 12rem;
+    }
   }
 }
