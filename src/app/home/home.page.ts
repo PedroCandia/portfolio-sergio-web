@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonContent, IonText } from '@ionic/angular/standalone';
+import { IonContent, IonText, IonButtons, IonButton } from '@ionic/angular/standalone';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { GalleryComponent } from '../components/gallery/gallery.component';
@@ -8,10 +8,11 @@ import { GalleryComponent } from '../components/gallery/gallery.component';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonText, IonContent, FooterComponent, HeaderComponent, GalleryComponent],
+  imports: [IonButton, IonButtons, IonText, IonContent, FooterComponent, HeaderComponent, GalleryComponent],
 })
 export class HomePage {
   isShrunk = false;
+  isMenuOpen: boolean = false;
 
   section_1 = {
     title: "Muebles flotantes",
@@ -65,9 +66,21 @@ export class HomePage {
   constructor() {}
 
   onScroll(event: any) {
-    this.isShrunk = event.detail.scrollTop > 70; // a los 50px cambia
+    this.isShrunk = event.detail.scrollTop > 70; // a los 50px cambia 
+  }
 
-    console.log(this.isShrunk);
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  scrollToSection(sectionId: string, fromMobile?: boolean) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     
+    if(fromMobile) {
+      this.toggleMenu();
+    }
   }
 }

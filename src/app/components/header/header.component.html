@@ -1,20 +1,27 @@
 <!-- Toolbar cuando el scroll esta hasta arriba -->
 
-<ion-header  class="headerImg">
+<ion-header  class="headerBanner">
   <ion-toolbar>
-    <div style="display: flex; justify-content: space-between;">
+    <div class="container_toolbar">
       <ion-img 
         class="logo"
-        style="width: 180px; height: 180px;"
         src="../../../assets/img/header/logo_carpentry2.png"
       ></ion-img>
 
-      <ion-buttons  ion-buttons slot="end">
+      <ion-buttons slot="end" class="desktopShow">
         <ion-button routerLink="/home">Inicio</ion-button>
         <ion-button routerLink="/gallery">Galería</ion-button>
         <ion-button routerLink="/contact">Contacto</ion-button>
       </ion-buttons>
+
+      <ion-icon 
+        name="menu-outline"
+        slot="end"
+        class="mobileShow menu"
+        style="color: white; font-size: 2rem;"
+        (click)="toggleMenuEmit()"></ion-icon>
     </div>
+
     <div class="galleryTitle">
       <ion-text>Galería</ion-text>
     </div>
@@ -24,14 +31,21 @@
 <!-- Toolbar se hace visible cuando el scroll baja -->
 @if (isShrunk) {
   <ion-header [class.shrink]="isShrunk" [class.visable]="isShrunk" class="staticHeader shrinkAnim">
-    <ion-toolbar>
+    <ion-toolbar class="staticHeader">
       <ion-img class="logo" style="width: 100px; height: 100px;" src="../../../assets/img/header/logo_carpentry2.png"></ion-img>
 
-      <ion-buttons slot="end">
+      <ion-buttons slot="end" class="desktopShow">
         <ion-button routerLink="/home">Inicio</ion-button>
         <ion-button routerLink="/gallery">Galería</ion-button>
         <ion-button routerLink="/contact">Contacto</ion-button>
       </ion-buttons>
+
+      <ion-icon 
+        name="menu-outline"
+        slot="end"
+        class="mobileShow menu staticIconMenu"
+        style="color: white; font-size: 2rem;"
+        (click)="toggleMenuEmit()"></ion-icon>
     </ion-toolbar>
   </ion-header>
 }

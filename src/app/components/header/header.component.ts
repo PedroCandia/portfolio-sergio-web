@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import {addIcons} from "ionicons";
+import { menuOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +12,16 @@ import { IonicModule } from '@ionic/angular';
 })
 export class HeaderComponent  implements OnInit {
   @Input() isShrunk = false;
+  @Output() toggleMenu: EventEmitter<void> = new EventEmitter();
 
-  constructor() { }
+
+  constructor() { 
+    addIcons({ menuOutline });
+  }
 
   ngOnInit() {}
 
+  toggleMenuEmit() {
+    this.toggleMenu.emit();
+  }
 }
