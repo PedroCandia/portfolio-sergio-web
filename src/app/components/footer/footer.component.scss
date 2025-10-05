@@ -1,0 +1,52 @@
+ion-toolbar {
+  padding: 20px;
+  --background: var(--ion-color-primary-shade);
+}
+
+.container-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.address {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   margin-top: -35px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.icon-circle {
+  background-color: var( --ion-color-accent); /* Beige/dorado */
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  ion-icon {
+    font-size: 24px;
+    color: #ffffff; /* Verde de WhatsApp */
+  }
+
+  &:hover {
+    background-color: #ffffff;
+    transform: scale(1.1);
+
+    ion-icon {
+      color: var( --ion-color-accent); /* Verde oscuro de WhatsApp */
+    }
+  }
+}

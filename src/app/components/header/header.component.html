@@ -1,0 +1,51 @@
+<!-- Toolbar cuando el scroll esta hasta arriba -->
+
+<ion-header  class="headerBanner">
+  <ion-toolbar>
+    <div class="container_toolbar">
+      <ion-img 
+        class="logo"
+        src="../../../assets/img/header/logo_carpentry2.png"
+      ></ion-img>
+
+      <ion-buttons slot="end" class="desktopShow">
+        <ion-button routerLink="/home">Inicio</ion-button>
+        <ion-button routerLink="/gallery">Galería</ion-button>
+        <ion-button routerLink="/contact">Contacto</ion-button>
+      </ion-buttons>
+
+      <ion-icon 
+        name="menu-outline"
+        slot="end"
+        class="mobileShow menu"
+        style="color: white; font-size: 2rem;"
+        (click)="toggleMenuEmit()"></ion-icon>
+    </div>
+
+    <div class="galleryTitle">
+      <ion-text>Galería</ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Toolbar se hace visible cuando el scroll baja -->
+@if (isShrunk) {
+  <ion-header [class.shrink]="isShrunk" [class.visable]="isShrunk" class="staticHeader shrinkAnim">
+    <ion-toolbar class="staticHeader">
+      <ion-img class="logo" style="width: 100px; height: 100px;" src="../../../assets/img/header/logo_carpentry2.png"></ion-img>
+
+      <ion-buttons slot="end" class="desktopShow">
+        <ion-button routerLink="/home">Inicio</ion-button>
+        <ion-button routerLink="/gallery">Galería</ion-button>
+        <ion-button routerLink="/contact">Contacto</ion-button>
+      </ion-buttons>
+
+      <ion-icon 
+        name="menu-outline"
+        slot="end"
+        class="mobileShow menu staticIconMenu"
+        style="color: white; font-size: 2rem;"
+        (click)="toggleMenuEmit()"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+}

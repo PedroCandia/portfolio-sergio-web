@@ -1,20 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content (ionScroll)="onScroll($event)" scrollEvents="true">
+  <app-header [isShrunk]="isShrunk" (toggleMenu)="toggleMenu()" id="home_section"></app-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="containerTitle">
+      <ion-text>Nuestro trabajo</ion-text>
+    </div>
   </div>
+
+  <app-gallery id="gallery_section" title="{{section_1.title}}" [images]="section_1.images"></app-gallery>
+
+  <app-gallery title="{{section_2.title}}" [images]="section_2.images"></app-gallery>
+
+  <app-gallery title="{{section_3.title}}" [images]="section_3.images"></app-gallery>
+
+  <app-gallery title="{{section_4.title}}" [images]="section_4.images"></app-gallery>
+
+  <app-footer id="contact_section"></app-footer>
 </ion-content>
+
+<!-- Menú personalizado -->
+ @if (isMenuOpen) {
+  <div class="custom-menu">
+  <div class="menu-overlay" (click)="toggleMenu()"></div>
+  <div class="menu-content">
+    <ion-buttons slot="end" style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column">
+      <ion-button class="tab" (click)="scrollToSection('home_section', true)">Inicio</ion-button>
+      <div class="separator-line" style="background-color: white; height: 1px; width: 80%; margin: 10px 0;"></div>
+
+      <ion-button class="tab" (click)="scrollToSection('gallery_section', true)">Galería</ion-button>
+      <div class="separator-line" style="background-color: white; height: 1px; width: 80%; margin: 10px 0;"></div>
+
+      <ion-button class="tab" (click)="scrollToSection('contact_section', true)">Contacto</ion-button>
+      <div class="separator-line" style="background-color: white; height: 1px; width: 80%; margin: 10px 0;"></div>
+    </ion-buttons>
+  </div>
+</div>
+ }
