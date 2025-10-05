@@ -3,11 +3,10 @@
 
   <div class="separador"></div>
 
-  
   <ion-grid>
     <ion-row>
       @for (img of images; track $index) {
-        <ion-col size="3">
+        <ion-col size="6" size-md="3">
           <!-- <ion-img src="../../../assets/img/gallery/mueble_1.jpg"></ion-img> -->
            <ion-img [src]="img"></ion-img>
         </ion-col>
