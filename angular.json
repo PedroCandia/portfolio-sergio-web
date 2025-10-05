@@ -18,7 +18,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
-            "outputPath": "www",
+            "outputPath": {
+              "base": "www",
+              "browser": "www"
+            },
             "index": "src/index.html",
             "polyfills": [
               "src/polyfills.ts"
