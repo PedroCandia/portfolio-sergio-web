@@ -16,9 +16,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser-esbuild",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "www",
+            "outputPath": {
+              "base": "www",
+              "browser": ""
+            },
             "index": "src/index.html",
             "polyfills": [
               "src/polyfills.ts"
