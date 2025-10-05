@@ -7,8 +7,8 @@ import { menuOutline } from 'ionicons/icons';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone: true,
-  imports: [IonicModule]
+  standalone: false,
+  // imports: [IonicModule]
 })
 export class HeaderComponent  implements OnInit {
   @Input() isShrunk = false;
