@@ -17,10 +17,10 @@ export class HomePage {
   section_1 = {
     title: "Muebles flotantes",
     images: [
-      './assets/img/gallery/mueble_flotante_1.jpg',
-      './assets/img/gallery/mueble_flotante_2.jpg',
-      './assets/img/gallery/mueble_flotante_3.jpg',
-      './assets/img/gallery/mueble_flotante_4.jpg',
+      'assets/img/gallery/mueble_flotante_1.jpg',
+      '/assets/img/gallery/mueble_flotante_2.jpg',
+      '/assets/img/gallery/mueble_flotante_3.jpg',
+      '/assets/img/gallery/mueble_flotante_4.jpg',
     ]
   }
 
@@ -36,15 +36,15 @@ export class HomePage {
   section_3 = {
     title: "Lambrin para interior",
     images: [
-      './assets/img/gallery/lambrin_1.jpg',
-      './assets/img/gallery/lambrin_2.jpg',
-      './assets/img/gallery/lambrin_3.jpg',
-      './assets/img/gallery/lambrin_4.jpg',
-      './assets/img/gallery/lambrin_5.jpg',
-      './assets/img/gallery/lambrin_6.jpg',
-      './assets/img/gallery/lambrin_7.jpg',
-      './assets/img/gallery/lambrin_8.jpg',
-      './assets/img/gallery/lambrin_9.jpg'
+      '/assets/img/gallery/lambrin_1.jpg',
+      '/assets/img/gallery/lambrin_2.jpg',
+      '/assets/img/gallery/lambrin_3.jpg',
+      '/assets/img/gallery/lambrin_4.jpg',
+      '/assets/img/gallery/lambrin_5.jpg',
+      '/assets/img/gallery/lambrin_6.jpg',
+      '/assets/img/gallery/lambrin_7.jpg',
+      '/assets/img/gallery/lambrin_8.jpg',
+      'assets/img/gallery/lambrin_9.jpg'
     ]
   }
 
