@@ -1,11 +1,8 @@
 {
-  "builds": [
-    { "src": "angular.json", "use": "@vercel/angular" }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/portfolio-sergio-web", 
+  "framework": "none",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
