@@ -20,7 +20,7 @@
           "options": {
             "outputPath": {
               "base": "www",
-              "browser": ""
+              "browser": "www"
             },
             "index": "src/index.html",
             "polyfills": [
