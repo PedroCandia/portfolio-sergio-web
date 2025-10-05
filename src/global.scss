@@ -39,3 +39,34 @@
 * {
     font-family: "Barlow", sans-serif;
 }
+
+
+/* Extra pequeños (teléfonos en vertical, <576px) */
+@media (max-width: 575.98px) {
+
+}
+
+/* Pequeños (teléfonos grandes, ≥576px y <768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/* Medianos (tablets, ≥768px y <992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Grandes (laptops, ≥992px y <1200px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  
+}
+
+/* Extra grandes (pantallas desktop, ≥1200px y <1400px) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  
+}
+
+/* Ultra grandes (≥1400px) */
+@media (min-width: 1400px) {
+
+}
