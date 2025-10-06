@@ -5,8 +5,8 @@ import { IonicModule } from '@ionic/angular';
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
-  standalone: false,
-  // imports: [IonicModule]
+  standalone: true,
+  imports: [IonicModule]
 })
 export class GalleryComponent  implements OnInit {
   @Input() title!: string;

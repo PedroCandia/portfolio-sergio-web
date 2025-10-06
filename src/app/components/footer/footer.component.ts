@@ -7,8 +7,8 @@ import { logoWhatsapp } from 'ionicons/icons';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
-  standalone: false,
-  // imports: [IonicModule]
+  standalone: true,
+  imports: [IonicModule]
 })
 export class FooterComponent  implements OnInit {
 
