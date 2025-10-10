@@ -16,12 +16,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": {
-              "base": "www",
-              "browser": ""
-            },
+            "outputPath": "www",
             "index": "src/index.html",
             "polyfills": [
               "src/polyfills.ts"
@@ -37,7 +34,7 @@
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
             "scripts": [],
-            "browser": "src/main.ts"
+            "main": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -105,7 +102,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public",
+                "input": "src/assets",
                 "output": "assets"
               }
             ],
