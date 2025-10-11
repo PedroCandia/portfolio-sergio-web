@@ -11,8 +11,7 @@ ion-buttons {
 }
 
 ion-button {
-  text-transform: none !important; /* mantiene el texto como lo escribas */
-  color: white;
+  text-transform: none !important;
   font-size: 17px;
 }
 
@@ -42,16 +41,14 @@ ion-toolbar {
   --background: url("../../../assets/img/header/banner.webp") no-repeat center/cover;
 }
 
-/* Overlay oscuro encima de la imagen */
 .headerBanner ion-toolbar::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.50); /* negro semi-transparente */
+  background: rgba(0, 0, 0, 0.50);
   z-index: 0;
 }
 
-/* Mantener logo, botones y textos encima */
 .headerBanner ion-toolbar > * {
   position: relative;
   z-index: 1;
@@ -64,19 +61,19 @@ ion-toolbar {
 }
 
 ion-header.shrink {
-  position: fixed;   /* lo fija arriba */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;     /* que quede encima del contenido */
+  z-index: 1000;
 }
 
 ion-header.shrink ion-toolbar {
   --padding-top: 0rem;
   align-items: center;
   height: 7rem;
-  --background: #5E5B53; /* color solo cuando shrink = true */
-    background: none; /* quitamos la imagen */
+  --background: #5E5B53;
+    background: none;
 }
 
 ion-header.shrink .logo {
@@ -85,12 +82,10 @@ ion-header.shrink .logo {
   margin-left: 2rem;
 }
 
-/* Animación para cuando aparece */
 .shrinkAnim {
   animation: fadeDown 0.4s ease forwards;
 }
 
-/* keyframes: entra desde arriba con fade */
 @keyframes fadeDown {
   from {
     opacity: 0;
@@ -110,7 +105,6 @@ ion-header.shrink .logo {
   display: none;
 }
 
-/* Extra pequeños (teléfonos en vertical, <576px) */
 @media (max-width: 575.98px) {
   ion-toolbar {
     padding-inline: 0rem;
@@ -145,7 +139,6 @@ ion-header.shrink .logo {
   }
 }
 
-/* Pequeños (teléfonos grandes, ≥576px y <768px) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   ion-toolbar {
     padding-inline: 0rem;
