@@ -69,3 +69,26 @@ ion-grid {
 @media (min-width: 1400px) {
 
 }
+
+@keyframes show {
+  from {
+    opacity: 0;
+    scale: 25%;
+  }
+
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
+
+ion-img {
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+
+  animation-timeline: --image;
+  animation-name: show;
+
+  animation-range: entry 15% cover 45%;
+  animation-fill-mode: both;
+}

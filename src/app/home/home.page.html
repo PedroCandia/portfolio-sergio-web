@@ -1,21 +1,42 @@
 <ion-content (ionScroll)="onScroll($event)" scrollEvents="true">
-  <app-header [isShrunk]="isShrunk" (toggleMenu)="toggleMenu()" id="home_section"></app-header>
+  <app-header [isShrunk]="isShrunk" (toggleMenu)="toggleMenu()" (scrollToSection)="scrollToSection($event)" id="home-section"></app-header>
 
   <div id="container">
-    <div class="containerTitle">
+    <div class="containerTitle" id="gallery-section">
       <ion-text>Nuestro trabajo</ion-text>
     </div>
   </div>
 
-  <app-gallery id="gallery_section" title="{{section_1.title}}" [images]="section_1.images"></app-gallery>
+  <app-gallery 
+    title="{{section_1.title}}"
+    [images]="section_1.images" 
+    scrollToContactIsActive="{{scrollToContactIsActive}}"
+    (scrollToSection)="scrollToSection($event)"
+    >
+  </app-gallery>
 
-  <app-gallery title="{{section_2.title}}" [images]="section_2.images"></app-gallery>
+  <app-gallery 
+    title="{{section_2.title}}"
+    [images]="section_2.images"
+    scrollToContactIsActive="{{scrollToContactIsActive}}"
+    (scrollToSection)="scrollToSection($event)"
+    ></app-gallery>
 
-  <app-gallery title="{{section_3.title}}" [images]="section_3.images"></app-gallery>
+  <app-gallery 
+    title="{{section_3.title}}" 
+    [images]="section_3.images"
+    scrollToContactIsActive="{{scrollToContactIsActive}}"
+    (scrollToSection)="scrollToSection($event)"
+    ></app-gallery>
 
-  <app-gallery title="{{section_4.title}}" [images]="section_4.images"></app-gallery>
+  <app-gallery
+    title="{{section_4.title}}"
+    [images]="section_4.images"
+    scrollToContactIsActive="{{scrollToContactIsActive}}"
+    (scrollToSection)="scrollToSection($event)"
+    ></app-gallery>
 
-  <app-footer id="contact_section"></app-footer>
+  <app-footer id="contact-section"></app-footer>
 </ion-content>
 
 <!-- Menú personalizado -->

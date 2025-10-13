@@ -13,7 +13,9 @@ import { menuOutline } from 'ionicons/icons';
 export class HeaderComponent  implements OnInit {
   @Input() isShrunk = false;
   @Output() toggleMenu: EventEmitter<void> = new EventEmitter();
+  @Output() scrollToSection = new EventEmitter<string>();
 
+  activeSection: string = 'home-section';
 
   constructor() { 
     addIcons({ menuOutline });
@@ -23,5 +25,10 @@ export class HeaderComponent  implements OnInit {
 
   toggleMenuEmit() {
     this.toggleMenu.emit();
+  }
+
+  onButtonClick(sectionId: string) {
+    this.activeSection = sectionId;
+    this.scrollToSection.emit(sectionId);
   }
 }

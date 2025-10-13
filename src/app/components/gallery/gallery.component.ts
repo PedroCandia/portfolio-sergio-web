@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -11,9 +11,17 @@ import { IonicModule } from '@ionic/angular';
 export class GalleryComponent  implements OnInit {
   @Input() title!: string;
   @Input() images: string[] = [];
+  @Input() scrollToContactIsActive!: string;
+  @Output() scrollToSection = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {}
 
+  onImgLoaded() {
+    const scrollToFooterIsValid = this.scrollToContactIsActive && this.scrollToContactIsActive != "false";
+    if(scrollToFooterIsValid) {
+      this.scrollToSection.emit("contact-section");
+    }
+  }
 }

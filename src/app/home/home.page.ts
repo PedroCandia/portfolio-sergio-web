@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonContent, IonText, IonButtons, IonButton } from '@ionic/angular/standalone';
 import { FooterComponent } from '../components/footer/footer.component';
 import { GalleryComponent } from '../components/gallery/gallery.component';
@@ -12,8 +12,10 @@ import { HeaderComponent } from '../components/header/header.component';
   imports: [IonButton, IonButtons, IonText, IonContent, FooterComponent, GalleryComponent, HeaderComponent],
 })
 export class HomePage {
+  @ViewChild(IonContent) content!: IonContent;
   isShrunk = false;
   isMenuOpen: boolean = false;
+  scrollToContactIsActive: boolean = false;
 
   section_1 = {
     title: "Muebles flotantes",
@@ -77,11 +79,24 @@ export class HomePage {
   scrollToSection(sectionId: string, fromMobile?: boolean) {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if(sectionId == "gallery-section") {
+        this.scrollDesktopGallerySection(element);
+      } else if(sectionId == "contact-section") {
+        this.scrollToContactIsActive = true;
+        this.content.scrollToBottom(600);
+      } else {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
     
     if(fromMobile) {
       this.toggleMenu();
     }
+  }
+
+  scrollDesktopGallerySection(element: any) {
+    const headerHeight = 112;
+    const y = element.offsetTop - headerHeight;
+    this.content.scrollToPoint(0, y, 600);
   }
 }
