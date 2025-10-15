@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import {addIcons} from "ionicons";
-import { logoWhatsapp } from 'ionicons/icons';
+import { logoWhatsapp, callOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-footer',
@@ -13,7 +13,7 @@ import { logoWhatsapp } from 'ionicons/icons';
 export class FooterComponent  implements OnInit {
 
   constructor() {
-    addIcons({ logoWhatsapp });
+    addIcons({ logoWhatsapp, callOutline });
   }
 
   ngOnInit() {}
