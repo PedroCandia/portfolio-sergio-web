@@ -3,14 +3,12 @@
 
   <div class="separador"></div>
 
-  <ion-grid>
-    <ion-row>
-      @for (img of images; track $index) {
-        <ion-col size="6" size-md="3">
-          <!-- <ion-img src="../../../assets/img/gallery/mueble_1.jpg"></ion-img> -->
-           <ion-img [src]="img" (ionImgDidLoad)="onImgLoaded()"></ion-img>
-        </ion-col>
-      }
-    </ion-row>
-  </ion-grid>
+  <lightgallery [settings]="settings" class="gallery-grid">
+    @for (img of images; track $index) {
+      <a [href]="img" class="gallery-item">
+        <ion-img [src]="img" />
+        <!-- alt="img1" -->
+      </a>
+    }
+  </lightgallery>
 </div>
