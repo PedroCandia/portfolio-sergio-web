@@ -1,4 +1,142 @@
-<ion-content (ionScroll)="onScroll($event)" scrollEvents="true">
+<ion-content [fullscreen]="true" class="home-page">
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="brand">
+      <img src="../../assets/img/header/carpentry_logo.png" alt="Carpentry logo" />
+      <span>CARPENTRY</span>
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button class="menu-btn" (click)="toggleMenu()" aria-label="Abrir menú">
+      <ion-icon [name]="menuOpen ? 'close-outline' : 'menu-outline'"></ion-icon>
+    </button>
+  </header>
+
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <a href="#inicio" (click)="toggleMenu()">Inicio</a>
+    <a href="#galeria" (click)="toggleMenu()">Galería</a>
+    <a href="#contacto" (click)="toggleMenu()">Contacto</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="eyebrow">Carpintería a medida para tu hogar</p>
+      <h1 class="hero-title">
+        Espacios con <br />
+        presencia y detalle
+      </h1>
+      <!-- <p class="hero-text">
+        Rediseñamos ambientes con carpintería elegante, acabados finos y piezas
+        hechas a medida para transformar cada espacio.
+      </p> -->
+      <div class="hero-actions">
+        <a href="#galeria" class="btn btn-primary">Ver trabajos</a>
+        <a href="#contacto" class="btn btn-secondary">Solicitar cotización</a>
+      </div>
+    </div>
+
+    <div class="hero-side-card">
+      <span class="small-label">Proyecto destacado</span>
+      <h3>Spots para TV</h3>
+      <p>
+        Composición moderna con acabados elegantes, iluminación y diseño a medida.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro-wrap">
+      <div class="intro-left">
+        <span class="intro-tag">Nuestro trabajo</span>
+        <h2>
+          Spots y muebles<br />
+          a medida
+        </h2>
+      </div>
+
+      <div class="intro-right">
+        <p class="intro-lead">
+          Cada proyecto se diseña y fabrica a medida, cuidando cada detalle para lograr
+          espacios funcionales, modernos y con una presencia que realmente se nota.
+        </p>
+
+        <a href="#galeria" class="intro-link">
+          Ver trabajos realizados
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery section" id="galeria">
+    <div class="section-heading">
+      <span class="section-tag">Galería</span>
+      <h2>Detalles que hablan por sí solos</h2>
+      <p>
+        Una exhibición más limpia y elegante del trabajo realizado, con enfoque
+        visual tipo showroom.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div
+        class="gallery-item"
+        *ngFor="let image of gallery"
+        [style.backgroundImage]="'url(' + image + ')'"
+      ></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contacto">
+    <div class="contact-layout">
+      <div class="contact-copy">
+        <span class="section-tag">Contacto</span>
+        <h2>Conversemos sobre tu proyecto</h2>
+        <p>
+          Si estás buscando renovar un espacio con carpintería moderna y acabados
+          de calidad, estamos listos para ayudarte.
+        </p>
+
+        <div class="contact-info">
+          <p><strong>WhatsApp:</strong> +52 81 0000 0000</p>
+          <p><strong>Ubicación:</strong> Monterrey, Nuevo León</p>
+          <p><strong>Horario:</strong> Lunes a sábado</p>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Tu nombre" />
+        <input type="text" placeholder="Tu teléfono" />
+        <input type="email" placeholder="Tu correo" />
+        <textarea rows="5" placeholder="Cuéntanos qué proyecto tienes en mente"></textarea>
+        <button type="button" class="btn btn-primary full">Enviar solicitud</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <img src="assets/img/logo-carpentry.png" alt="Carpentry logo" />
+      <span>CARPENTRY</span>
+    </div>
+    <p>Diseño en madera para espacios con más estilo.</p>
+  </footer>
+
+</ion-content>
+
+<!-- <ion-content (ionScroll)="onScroll($event)" scrollEvents="true">
   <app-header [isShrunk]="isShrunk" (toggleMenu)="toggleMenu()" (scrollToSection)="scrollToSection($event)" id="home-section"></app-header>
 
   <div id="container">
@@ -39,7 +177,6 @@
   <app-footer id="contact-section"></app-footer>
 </ion-content>
 
-<!-- Menú personalizado -->
  @if (isMenuOpen) {
   <div class="custom-menu">
   <div class="menu-overlay" (click)="toggleMenu()"></div>
@@ -60,4 +197,4 @@
     </ion-buttons>
   </div>
 </div>
-}
+} -->
