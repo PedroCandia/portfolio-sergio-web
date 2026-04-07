@@ -1,31 +1,26 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { HeaderComponent } from '../components/header/header.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonicModule],
+  imports: [CommonModule, IonicModule, HeaderComponent],
 })
 export class HomePage {
-  menuOpen = false;
-
   gallery = [
-  'assets/img/gallery/mueble_flotante_1.webp',
-  'assets/img/gallery/mueble_flotante_2.webp',
-  'assets/img/gallery/lambrin_2.webp',
-  'assets/img/gallery/lambrin_4.webp',
-  'assets/img/gallery/mueble_1.webp',
-  'assets/img/gallery/mueble_3.webp',
-  'assets/img/gallery/spot_para_tv_3.webp',
-  'assets/img/gallery/spot_para_tv_2.webp',
-];
-
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
+    'assets/img/gallery/mueble_flotante_1.webp',
+    'assets/img/gallery/mueble_flotante_2.webp',
+    'assets/img/gallery/lambrin_2.webp',
+    'assets/img/gallery/lambrin_4.webp',
+    'assets/img/gallery/mueble_1.webp',
+    'assets/img/gallery/mueble_3.webp',
+    'assets/img/gallery/spot_para_tv_3.webp',
+    'assets/img/gallery/spot_para_tv_2.webp',
+  ];
 }
 
 // import { Component, ViewChild } from '@angular/core';

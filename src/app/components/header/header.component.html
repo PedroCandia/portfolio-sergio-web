@@ -1,6 +1,29 @@
+<header class="topbar">
+    <div class="brand">
+      <img src="../../assets/img/header/carpentry_logo.png" alt="Carpentry logo" />
+      <span>CARPENTRY</span>
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button class="menu-btn" (click)="toggleMenu()" aria-label="Abrir menú">
+      <ion-icon [name]="menuOpen ? 'close-outline' : 'menu-outline'"></ion-icon>
+    </button>
+  </header>
+
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <a href="#inicio" (click)="toggleMenu()">Inicio</a>
+    <a href="#galeria" (click)="toggleMenu()">Galería</a>
+    <a href="#contacto" (click)="toggleMenu()">Contacto</a>
+  </div>
+
 <!-- Toolbar cuando el scroll esta hasta arriba -->
 
-<ion-header  class="headerBanner">
+<!-- <ion-header  class="headerBanner">
   <ion-toolbar>
     <div class="container_toolbar">
       <ion-img 
@@ -26,10 +49,10 @@
       <ion-text>Galería</ion-text>
     </div>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <!-- Toolbar se hace visible cuando el scroll baja -->
-@if (isShrunk) {
+<!-- @if (isShrunk) {
   <ion-header [class.shrink]="isShrunk" [class.visable]="isShrunk" class="staticHeader shrinkAnim">
     <ion-toolbar class="staticHeader">
       <ion-img class="logo" style="width: 100px; height: 100px;" src="../../../assets/img/logo_carpentry.webp"></ion-img>
@@ -48,4 +71,4 @@
         (click)="toggleMenuEmit()"></ion-icon>
     </ion-toolbar>
   </ion-header>
-}
+} -->

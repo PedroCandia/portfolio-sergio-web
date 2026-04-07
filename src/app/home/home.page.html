@@ -1,28 +1,7 @@
 <ion-content [fullscreen]="true" class="home-page">
 
   <!-- HEADER -->
-  <header class="topbar">
-    <div class="brand">
-      <img src="../../assets/img/header/carpentry_logo.png" alt="Carpentry logo" />
-      <span>CARPENTRY</span>
-    </div>
-
-    <nav class="desktop-nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#galeria">Galería</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-
-    <button class="menu-btn" (click)="toggleMenu()" aria-label="Abrir menú">
-      <ion-icon [name]="menuOpen ? 'close-outline' : 'menu-outline'"></ion-icon>
-    </button>
-  </header>
-
-  <div class="mobile-menu" [class.open]="menuOpen">
-    <a href="#inicio" (click)="toggleMenu()">Inicio</a>
-    <a href="#galeria" (click)="toggleMenu()">Galería</a>
-    <a href="#contacto" (click)="toggleMenu()">Contacto</a>
-  </div>
+  <app-header id="home-section"></app-header>
 
   <!-- HERO -->
   <section class="hero" id="inicio">
@@ -102,7 +81,7 @@
     <div class="contact-layout">
       <div class="contact-copy">
         <span class="section-tag">Contacto</span>
-        <h2>Conversemos sobre tu proyecto</h2>
+        <h2 class="section-title">Conversemos sobre tu proyecto</h2>
         <p>
           Si estás buscando renovar un espacio con carpintería moderna y acabados
           de calidad, estamos listos para ayudarte.
@@ -127,11 +106,45 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div>
-      <img src="assets/img/logo-carpentry.png" alt="Carpentry logo" />
-      <span>CARPENTRY</span>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="../../assets/img/header/carpentry_logo.png" alt="Carpentry logo" />
+          <span>CARPENTRY</span>
+        </div>
+
+        <p class="footer-description">
+          Carpintería a medida en Monterrey, especializada en spots para TV,
+          muebles flotantes, lambrín y soluciones en madera con acabados elegantes.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navegación</h4>
+        <a href="#inicio">Inicio</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contacto</h4>
+        <p><strong>WhatsApp:</strong> +52 81 0000 0000</p>
+        <p><strong>Ubicación:</strong> Monterrey, Nuevo León</p>
+        <p><strong>Horario:</strong> Lunes a sábado</p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Redes sociales</h4>
+        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://wa.me/528100000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
     </div>
-    <p>Diseño en madera para espacios con más estilo.</p>
+
+    <div class="footer-bottom">
+      <p>© 2026 Carpentry. Todos los derechos reservados.</p>
+      <p>Diseño en madera para espacios con más estilo.</p>
+    </div>
   </footer>
 
 </ion-content>

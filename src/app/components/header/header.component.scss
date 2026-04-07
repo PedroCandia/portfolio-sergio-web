@@ -1,236 +1,324 @@
-.container_toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-ion-buttons {
-  margin-right: 5rem;
-  display: flex;
-  gap: 1rem;
-}
-
-ion-button {
-  text-transform: none !important;
-  font-size: 17px;
-  color: white;
-}
-
-ion-toolbar {
-  height: 450px;
-  display: flex;
-  transition: all 0.5s ease;
-  padding-inline: 17rem;
-  align-items: start;
-  --padding-top: 2rem;
-}
-
-.galleryTitle {
-  padding-inline: 5rem;
-  font-size: clamp(3rem, 5vw, 5rem);
-  font-weight: bold;
-  padding-top: 2rem;
-
-  ion-text {
-    color: white;
-  }
-}
-
-.headerBanner ion-toolbar {
-  position: relative;
-  overflow: hidden;
-  --background: url("../../../assets/img/header/banner.webp") no-repeat center/cover;
-}
-
-.headerBanner ion-toolbar::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.50);
-  z-index: 0;
-}
-
-.headerBanner ion-toolbar > * {
-  position: relative;
-  z-index: 1;
-}
-
-.logo {
-  height: 180px;
-  width: 180px;
-  margin-left: 5rem;
-}
-
-ion-header.shrink {
+/* TOPBAR */
+.topbar {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  z-index: 1000;
-}
-
-ion-header.shrink ion-toolbar {
-  --padding-top: 0rem;
-  align-items: center;
-  height: 7rem;
-  --background: #5E5B53;
-    background: none;
-}
-
-ion-header.shrink .logo {
-  height: 60px;
-  width: 60px;
-  margin-left: 2rem;
-}
-
-.shrinkAnim {
-  animation: fadeDown 0.4s ease forwards;
-}
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.desktopShow {
+  width: 100%;
+  z-index: 60;
+  padding: 20px 7%;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.18));
+  backdrop-filter: blur(10px);
 }
 
-.mobileShow {
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+  }
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+
+  a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.95rem;
+    transition: 0.25s ease;
+  }
+
+  a:hover {
+    color: var(--gold-soft);
+  }
+}
+
+.menu-btn {
   display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.9rem;
 }
 
-@media (max-width: 575.98px) {
-  ion-toolbar {
-    padding-inline: 0rem;
-    --padding-top: 0rem;
-    height: 300px;
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: rgba(7, 7, 7, 0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.35s ease;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
   }
 
-  .container_toolbar {
-    padding-inline: 2rem;
-  }
-
-  .galleryTitle {
-    padding-inline: 2rem;
-  }
-
-  .logo {
-    height: 110px;
-    width: 110px;
-    margin-left: 0rem;
-  }
-
-  .staticIconMenu {
-    padding-right: 3rem;
-  }
-
-  .desktopShow {
-    display: none;
-  }
-
-  .mobileShow {
-    display: block;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-  ion-toolbar {
-    padding-inline: 0rem;
-    --padding-top: 0rem;
-    height: 350px;
-  }
-
-  .container_toolbar {
-    padding-inline: 3rem;
-  }
-
-  .galleryTitle {
-    padding-inline: 3.5rem;
-  }
-
-  .logo {
-    height: 140px;
-    width: 140px;
-    margin-left: 0rem;
-  }
-
-  .staticIconMenu {
-    padding-right: 3rem;
-  }
-
-
-  .desktopShow {
-    display: none;
-  }
-
-  .mobileShow {
-    display: block;
+  &.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
-/* Medianos (tablets, ≥768px y <992px) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .headerBanner {
-    ion-toolbar {
-      padding-inline: 1rem;
-    }
-  }
+// .container_toolbar {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
 
-  .staticHeader {
-    ion-toolbar {
-      padding-inline: 1rem;
-    }
-  }
-}
+// ion-buttons {
+//   margin-right: 5rem;
+//   display: flex;
+//   gap: 1rem;
+// }
 
-/* Grandes (laptops, ≥992px y <1200px) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .headerBanner {
-    ion-toolbar {
-      padding-inline: 4rem;
-    }
-  }
+// ion-button {
+//   text-transform: none !important;
+//   font-size: 17px;
+//   color: white;
+// }
 
-  .staticHeader {
-    ion-toolbar {
-      padding-inline: 4rem;
-    }
-  }
-}
+// ion-toolbar {
+//   height: 450px;
+//   display: flex;
+//   transition: all 0.5s ease;
+//   padding-inline: 17rem;
+//   align-items: start;
+//   --padding-top: 2rem;
+// }
 
-/* Extra grandes (pantallas desktop, ≥1200px y <1400px) */
-@media (min-width: 1200px) and (max-width: 1399.98px) {
-  .headerBanner {
-    ion-toolbar {
-      padding-inline: 8rem;
-    }
-  }
+// .galleryTitle {
+//   padding-inline: 5rem;
+//   font-size: clamp(3rem, 5vw, 5rem);
+//   font-weight: bold;
+//   padding-top: 2rem;
 
-  .staticHeader {
-    ion-toolbar {
-      padding-inline: 8rem;
-    }
-  }
-}
+//   ion-text {
+//     color: white;
+//   }
+// }
 
-/* Ultra grandes (≥1400px) */
-@media (min-width: 1400px) {
-  .headerBanner {
-    ion-toolbar {
-      padding-inline: 12rem;
-    }
-  }
+// .headerBanner ion-toolbar {
+//   position: relative;
+//   overflow: hidden;
+//   --background: url("../../../assets/img/header/banner.webp") no-repeat center/cover;
+// }
 
-  .staticHeader {
-    ion-toolbar {
-      padding-inline: 12rem;
-    }
-  }
-}
+// .headerBanner ion-toolbar::after {
+//   content: "";
+//   position: absolute;
+//   inset: 0;
+//   background: rgba(0, 0, 0, 0.50);
+//   z-index: 0;
+// }
+
+// .headerBanner ion-toolbar > * {
+//   position: relative;
+//   z-index: 1;
+// }
+
+// .logo {
+//   height: 180px;
+//   width: 180px;
+//   margin-left: 5rem;
+// }
+
+// ion-header.shrink {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   z-index: 1000;
+// }
+
+// ion-header.shrink ion-toolbar {
+//   --padding-top: 0rem;
+//   align-items: center;
+//   height: 7rem;
+//   --background: #5E5B53;
+//     background: none;
+// }
+
+// ion-header.shrink .logo {
+//   height: 60px;
+//   width: 60px;
+//   margin-left: 2rem;
+// }
+
+// .shrinkAnim {
+//   animation: fadeDown 0.4s ease forwards;
+// }
+
+// @keyframes fadeDown {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-100%);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// .desktopShow {
+//   display: flex;
+// }
+
+// .mobileShow {
+//   display: none;
+// }
+
+// @media (max-width: 575.98px) {
+//   ion-toolbar {
+//     padding-inline: 0rem;
+//     --padding-top: 0rem;
+//     height: 300px;
+//   }
+
+//   .container_toolbar {
+//     padding-inline: 2rem;
+//   }
+
+//   .galleryTitle {
+//     padding-inline: 2rem;
+//   }
+
+//   .logo {
+//     height: 110px;
+//     width: 110px;
+//     margin-left: 0rem;
+//   }
+
+//   .staticIconMenu {
+//     padding-right: 3rem;
+//   }
+
+//   .desktopShow {
+//     display: none;
+//   }
+
+//   .mobileShow {
+//     display: block;
+//   }
+// }
+
+// @media (min-width: 576px) and (max-width: 767.98px) {
+//   ion-toolbar {
+//     padding-inline: 0rem;
+//     --padding-top: 0rem;
+//     height: 350px;
+//   }
+
+//   .container_toolbar {
+//     padding-inline: 3rem;
+//   }
+
+//   .galleryTitle {
+//     padding-inline: 3.5rem;
+//   }
+
+//   .logo {
+//     height: 140px;
+//     width: 140px;
+//     margin-left: 0rem;
+//   }
+
+//   .staticIconMenu {
+//     padding-right: 3rem;
+//   }
+
+
+//   .desktopShow {
+//     display: none;
+//   }
+
+//   .mobileShow {
+//     display: block;
+//   }
+// }
+
+// /* Medianos (tablets, ≥768px y <992px) */
+// @media (min-width: 768px) and (max-width: 991.98px) {
+//   .headerBanner {
+//     ion-toolbar {
+//       padding-inline: 1rem;
+//     }
+//   }
+
+//   .staticHeader {
+//     ion-toolbar {
+//       padding-inline: 1rem;
+//     }
+//   }
+// }
+
+// /* Grandes (laptops, ≥992px y <1200px) */
+// @media (min-width: 992px) and (max-width: 1199.98px) {
+//   .headerBanner {
+//     ion-toolbar {
+//       padding-inline: 4rem;
+//     }
+//   }
+
+//   .staticHeader {
+//     ion-toolbar {
+//       padding-inline: 4rem;
+//     }
+//   }
+// }
+
+// /* Extra grandes (pantallas desktop, ≥1200px y <1400px) */
+// @media (min-width: 1200px) and (max-width: 1399.98px) {
+//   .headerBanner {
+//     ion-toolbar {
+//       padding-inline: 8rem;
+//     }
+//   }
+
+//   .staticHeader {
+//     ion-toolbar {
+//       padding-inline: 8rem;
+//     }
+//   }
+// }
+
+// /* Ultra grandes (≥1400px) */
+// @media (min-width: 1400px) {
+//   .headerBanner {
+//     ion-toolbar {
+//       padding-inline: 12rem;
+//     }
+//   }
+
+//   .staticHeader {
+//     ion-toolbar {
+//       padding-inline: 12rem;
+//     }
+//   }
+// }

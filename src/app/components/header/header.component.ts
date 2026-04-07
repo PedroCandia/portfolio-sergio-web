@@ -11,24 +11,29 @@ import { menuOutline } from 'ionicons/icons';
   imports: [IonicModule]
 })
 export class HeaderComponent  implements OnInit {
-  @Input() isShrunk = false;
-  @Output() toggleMenu: EventEmitter<void> = new EventEmitter();
-  @Output() scrollToSection = new EventEmitter<string>();
+  menuOpen = false;
+  // @Input() isShrunk = false;
+  // @Output() toggleMenu: EventEmitter<void> = new EventEmitter();
+  // @Output() scrollToSection = new EventEmitter<string>();
 
-  activeSection: string = 'home-section';
+  // activeSection: string = 'home-section';
 
-  constructor() { 
-    addIcons({ menuOutline });
-  }
+  // constructor() { 
+  //   addIcons({ menuOutline });
+  // }
 
   ngOnInit() {}
 
-  toggleMenuEmit() {
-    this.toggleMenu.emit();
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
   }
 
-  onButtonClick(sectionId: string) {
-    this.activeSection = sectionId;
-    this.scrollToSection.emit(sectionId);
-  }
+  // toggleMenuEmit() {
+  //   this.toggleMenu.emit();
+  // }
+
+  // onButtonClick(sectionId: string) {
+  //   this.activeSection = sectionId;
+  //   this.scrollToSection.emit(sectionId);
+  // }
 }
