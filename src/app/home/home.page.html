@@ -1,7 +1,12 @@
 <ion-content [fullscreen]="true" class="home-page">
 
   <!-- HEADER -->
-  <app-header id="home-section"></app-header>
+  <app-header
+    id="home-section"
+    [menuOpen]="isMenuOpen"
+    (toggleMenu)="toggleMenu()"
+    (scrollToSection)="scrollToSection($event)"
+  ></app-header>
 
   <!-- HERO -->
   <section class="hero" id="inicio">
@@ -49,7 +54,7 @@
           espacios funcionales, modernos y con una presencia que realmente se nota.
         </p>
 
-        <a href="#galeria" class="intro-link">
+        <a (click)="scrollToSection('galeria')" class="intro-link">
           Ver trabajos realizados
         </a>
       </div>
@@ -67,16 +72,20 @@
       </p>
     </div>
 
-    <div class="gallery-grid">
-      <div
+    <lightgallery [settings]="gallerySettings" class="gallery-grid">
+      <a
         class="gallery-item"
         *ngFor="let image of gallery"
+        [href]="image"
         [style.backgroundImage]="'url(' + image + ')'"
-      ></div>
-    </div>
+      >
+        <span class="gallery-hover">
+          <span>Ver imagen</span>
+        </span>
+      </a>
+    </lightgallery>
   </section>
 
-  <!-- CONTACT -->
   <section class="contact section" id="contacto">
     <div class="contact-layout">
       <div class="contact-copy">
@@ -88,18 +97,47 @@
         </p>
 
         <div class="contact-info">
-          <p><strong>WhatsApp:</strong> +52 81 0000 0000</p>
+          <p><strong>WhatsApp:</strong> +52 81 1636 8628</p>
           <p><strong>Ubicación:</strong> Monterrey, Nuevo León</p>
           <p><strong>Horario:</strong> Lunes a sábado</p>
         </div>
       </div>
 
-      <form class="contact-form">
-        <input type="text" placeholder="Tu nombre" />
-        <input type="text" placeholder="Tu teléfono" />
-        <input type="email" placeholder="Tu correo" />
-        <textarea rows="5" placeholder="Cuéntanos qué proyecto tienes en mente"></textarea>
-        <button type="button" class="btn btn-primary full">Enviar solicitud</button>
+      <form class="contact-form" (ngSubmit)="sendToWhatsApp()" #contactForm="ngForm">
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="contactData.name"
+          placeholder="Tu nombre"
+          required
+        />
+
+        <input
+          type="text"
+          name="phone"
+          [(ngModel)]="contactData.phone"
+          placeholder="Tu teléfono"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="contactData.email"
+          placeholder="Tu correo"
+        />
+
+        <textarea
+          rows="5"
+          name="message"
+          [(ngModel)]="contactData.message"
+          placeholder="Cuéntanos qué proyecto tienes en mente"
+          required
+        ></textarea>
+
+        <button type="submit" class="btn btn-primary full">
+          Enviar por WhatsApp
+        </button>
       </form>
     </div>
   </section>
@@ -121,23 +159,23 @@
 
       <div class="footer-links">
         <h4>Navegación</h4>
-        <a href="#inicio">Inicio</a>
-        <a href="#galeria">Galería</a>
-        <a href="#contacto">Contacto</a>
+        <a (click)="scrollToSection('home-section')">Inicio</a>
+        <a (click)="scrollToSection('galeria')">Galería</a>
+        <a (click)="scrollToSection('contacto')">Contacto</a>
       </div>
 
       <div class="footer-contact">
         <h4>Contacto</h4>
-        <p><strong>WhatsApp:</strong> +52 81 0000 0000</p>
+        <p><strong>WhatsApp:</strong> +52 81 1636 8628</p>
         <p><strong>Ubicación:</strong> Monterrey, Nuevo León</p>
         <p><strong>Horario:</strong> Lunes a sábado</p>
       </div>
 
       <div class="footer-social">
         <h4>Redes sociales</h4>
-        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://wa.me/528100000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <!-- <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a> -->
+        <a href="https://wa.me/528116368628" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </div>
     </div>
 

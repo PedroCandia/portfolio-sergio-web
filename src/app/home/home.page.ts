@@ -1,16 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../components/header/header.component';
+import { LightgalleryModule } from 'lightgallery/angular';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonicModule, HeaderComponent],
-})
+  imports: [CommonModule, FormsModule, IonContent, HeaderComponent, LightgalleryModule],
+}) 
 export class HomePage {
+  @ViewChild(IonContent) content!: IonContent;
+  isMenuOpen: boolean = false;
+  scrollToContactIsActive: boolean = false;
+
+  contactData = {
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+  };
+
   gallery = [
     'assets/img/gallery/mueble_flotante_1.webp',
     'assets/img/gallery/mueble_flotante_2.webp',
@@ -21,6 +34,64 @@ export class HomePage {
     'assets/img/gallery/spot_para_tv_3.webp',
     'assets/img/gallery/spot_para_tv_2.webp',
   ];
+
+  gallerySettings = {
+    speed: 500,
+    download: false,
+    counter: true,
+    hideBarsDelay: 2000,
+    backdropDuration: 400,
+  };
+
+  scrollToSection(sectionId: string, fromMobile?: boolean) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      if(sectionId == "gallery-section") {
+        this.scrollDesktopGallerySection(element);
+      } else if(sectionId == "contact-section") {
+        this.scrollToContactIsActive = true;
+        this.content.scrollToBottom(600);
+      } else {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    
+    if(fromMobile) {
+      this.toggleMenu();
+    }
+  }
+
+  scrollDesktopGallerySection(element: any) {
+    const headerHeight = 112;
+    const y = element.offsetTop - headerHeight;
+    this.content.scrollToPoint(0, y, 600);
+  }
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  sendToWhatsApp() {
+    const { name, phone, email, message } = this.contactData;
+
+    if (!name || !phone || !message) {
+      alert('Por favor completa nombre, teléfono y proyecto.');
+      return;
+    }
+
+    const whatsappNumber = '528116368628'; // cambia por el real
+
+    const text = `Hola, me interesa una cotización.
+
+    Nombre: ${name}
+    Teléfono: ${phone}
+    Correo: ${email || 'No proporcionado'}
+    Proyecto: ${message}`;
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+    window.open(url, '_blank');
+  }
 }
 
 // import { Component, ViewChild } from '@angular/core';

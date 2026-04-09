@@ -1,25 +1,55 @@
 <header class="topbar">
-    <div class="brand">
-      <img src="../../assets/img/header/carpentry_logo.png" alt="Carpentry logo" />
-      <span>CARPENTRY</span>
+  <div class="brand" (click)="onButtonClick('home-section')">
+    <img src="../../assets/img/header/carpentry_logo.png" alt="Carpentry logo" />
+    <span>CARPENTRY</span>
+  </div>
+
+  <nav class="desktop-nav">
+    <a (click)="onButtonClick('home-section')">Inicio</a>
+    <a (click)="onButtonClick('galeria')">Galería</a>
+    <a (click)="onButtonClick('contacto')">Contacto</a>
+  </nav>
+
+  <button
+    class="menu-btn"
+    type="button"
+    (click)="toggleMenuEmit()"
+    [attr.aria-label]="menuOpen ? 'Cerrar menú' : 'Abrir menú'"
+  >
+    <ion-icon [name]="menuOpen ? 'close-outline' : 'menu-outline'"></ion-icon>
+  </button>
+</header>
+
+<div class="mobile-menu" [class.open]="menuOpen">
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-brand" (click)="onMobileNavClick('home-section')">
+        <img src="../../assets/img/header/carpentry_logo.png" alt="Carpentry logo" />
+        <span>CARPENTRY</span>
+      </div>
+
+      <button
+        class="mobile-close-btn"
+        type="button"
+        (click)="toggleMenuEmit()"
+        aria-label="Cerrar menú"
+      >
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
     </div>
 
-    <nav class="desktop-nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#galeria">Galería</a>
-      <a href="#contacto">Contacto</a>
+    <nav class="mobile-menu-nav">
+      <a (click)="onMobileNavClick('home-section')">Inicio</a>
+      <a (click)="onMobileNavClick('galeria')">Galería</a>
+      <a (click)="onMobileNavClick('contacto')">Contacto</a>
     </nav>
 
-    <button class="menu-btn" (click)="toggleMenu()" aria-label="Abrir menú">
-      <ion-icon [name]="menuOpen ? 'close-outline' : 'menu-outline'"></ion-icon>
-    </button>
-  </header>
-
-  <div class="mobile-menu" [class.open]="menuOpen">
-    <a href="#inicio" (click)="toggleMenu()">Inicio</a>
-    <a href="#galeria" (click)="toggleMenu()">Galería</a>
-    <a href="#contacto" (click)="toggleMenu()">Contacto</a>
+    <div class="mobile-menu-footer">
+      <span>Monterrey, Nuevo León</span>
+      <span>Carpintería a medida</span>
+    </div>
   </div>
+</div>
 
 <!-- Toolbar cuando el scroll esta hasta arriba -->
 
