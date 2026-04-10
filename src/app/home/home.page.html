@@ -73,12 +73,9 @@
     </div>
 
     <lightgallery [settings]="gallerySettings" class="gallery-grid">
-      <a
-        class="gallery-item"
-        *ngFor="let image of gallery"
-        [href]="image"
-        [style.backgroundImage]="'url(' + image + ')'"
-      >
+      <a class="gallery-item" *ngFor="let image of gallery" [href]="image">
+        <img [src]="image" alt="gallery" />
+
         <span class="gallery-hover">
           <span>Ver imagen</span>
         </span>
